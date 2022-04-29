@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chartBOX {
+            width: 700px;
+        }
+
+        canvas{
+            background-image: url(img/planta2.jpg);
+            background-size: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="chartBOX">
+        <canvas id="myChart"></canvas>
+    </div>
+</body>
+</html>
+<script>
+
+const data = {
+    labels: ['Muito Baixo', 'Baixo', 'Normal', 'Alto'],
+        datasets: [{
+            label: 'Fluxo',
+            data: [
+                { x: 1.2, y: 5, r: 5},
+                { x: 1.7, y: 3, r: 10},
+                { x: 1.5, y: 3, r: 15},
+                { x: 1.31, y: 3, r: 20}
+            ],
+            backgroundColor: [
+                'red',
+                'orange',
+                '#9ccc65',
+                '#089add'
+            ],
+            borderColor: [
+                'red',
+                'orange',
+                '#9ccc65',
+                '#089add'
+            ],
+            borderWidth: 1,
+            clip: false,
+            clip: {left: false, top: false, right: false, bottom: false}
+        }]
+};
+
+const config = {
+    type: 'bubble',
+    data,
+    options: {
+        plugins: {
+            legend: {
+                display: false
+            },
+        },
+        layout: {
+            padding: {
+                right: 215,
+                left: 60,
+                top: 100
+            }
+        },
+        scales: {
+            x: {
+                grid: {
+                    display: false
+                }
+            },
+            y: {
+                beginAtZero: true,
+                grid: {
+                    display: false
+                }
+            }
+        }
+    }
+};
+
+const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+);
+
+</script>
